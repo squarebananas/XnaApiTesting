@@ -1,0 +1,54 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36930.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "XnaApiTesting.Shared", "XnaApiTesting.Shared\XnaApiTesting.Shared.shproj", "{29306AFC-F83D-49C4-A126-3886DAEDCB2D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XnaApiTesting.Android.GL", "XnaApiTesting.Android.GL\XnaApiTesting.Android.GL.csproj", "{42DF8A17-A30D-4828-95FB-1155AE869AC3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XnaApiTesting.WinForms.DX11", "XnaApiTesting.WinForms.DX11\XnaApiTesting.WinForms.DX11.csproj", "{CE20A3E3-AC2A-4C2E-ABFC-74BAF4EEFE45}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XnaApiTesting.SDL2.GL", "XnaApiTesting.SDL2.GL\XnaApiTesting.SDL2.GL.csproj", "{12C17D4E-6F1D-4D63-8155-F338A8BAFD57}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XnaApiTesting.Blazor.GL", "XnaApiTesting.Blazor.GL\XnaApiTesting.Blazor.GL.csproj", "{5C00072A-F7C9-4D28-AAB6-266D5447A70C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{42DF8A17-A30D-4828-95FB-1155AE869AC3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42DF8A17-A30D-4828-95FB-1155AE869AC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42DF8A17-A30D-4828-95FB-1155AE869AC3}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{42DF8A17-A30D-4828-95FB-1155AE869AC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42DF8A17-A30D-4828-95FB-1155AE869AC3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{42DF8A17-A30D-4828-95FB-1155AE869AC3}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{CE20A3E3-AC2A-4C2E-ABFC-74BAF4EEFE45}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE20A3E3-AC2A-4C2E-ABFC-74BAF4EEFE45}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE20A3E3-AC2A-4C2E-ABFC-74BAF4EEFE45}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE20A3E3-AC2A-4C2E-ABFC-74BAF4EEFE45}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12C17D4E-6F1D-4D63-8155-F338A8BAFD57}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12C17D4E-6F1D-4D63-8155-F338A8BAFD57}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12C17D4E-6F1D-4D63-8155-F338A8BAFD57}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12C17D4E-6F1D-4D63-8155-F338A8BAFD57}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C00072A-F7C9-4D28-AAB6-266D5447A70C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C00072A-F7C9-4D28-AAB6-266D5447A70C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C00072A-F7C9-4D28-AAB6-266D5447A70C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C00072A-F7C9-4D28-AAB6-266D5447A70C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {72617DF5-0AB5-4F5C-99E3-FE0930369718}
+	EndGlobalSection
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		XnaApiTesting.Shared\XnaApiTesting.Shared.projitems*{12c17d4e-6f1d-4d63-8155-f338a8bafd57}*SharedItemsImports = 5
+		XnaApiTesting.Shared\XnaApiTesting.Shared.projitems*{29306afc-f83d-49c4-a126-3886daedcb2d}*SharedItemsImports = 13
+		XnaApiTesting.Shared\XnaApiTesting.Shared.projitems*{42df8a17-a30d-4828-95fb-1155ae869ac3}*SharedItemsImports = 5
+		XnaApiTesting.Shared\XnaApiTesting.Shared.projitems*{5c00072a-f7c9-4d28-aab6-266d5447a70c}*SharedItemsImports = 5
+		XnaApiTesting.Shared\XnaApiTesting.Shared.projitems*{ce20a3e3-ac2a-4c2e-abfc-74baf4eefe45}*SharedItemsImports = 5
+	EndGlobalSection
+EndGlobal

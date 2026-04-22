@@ -1,0 +1,144 @@
+
+#----------------------------- Global Properties ----------------------------#
+
+/outputDir:bin/$(Platform)
+/intermediateDir:obj/$(Platform)
+/platform:Windows
+/config:
+/profile:Reach
+/compress:False
+
+#-------------------------------- References --------------------------------#
+
+
+#---------------------------------- Content ---------------------------------#
+
+#begin bark_mono_11hz_8bit.wav
+/copy:bark_mono_11hz_8bit.wav
+
+#begin bark_mono_22hz_8bit.wav
+/copy:bark_mono_22hz_8bit.wav
+
+#begin bark_mono_44hz_16bit.wav
+/copy:bark_mono_44hz_16bit.wav
+
+#begin bark_mono_44hz_32bit.wav
+/copy:bark_mono_44hz_32bit.wav
+
+#begin bark_mono_44hz_8bit.wav
+/copy:bark_mono_44hz_8bit.wav
+
+#begin bark_mono_88hz_16bit.wav
+/copy:bark_mono_88hz_16bit.wav
+
+#begin blast_mono.wav
+/copy:blast_mono.wav
+
+#begin blast_mono_11hz.wav
+/copy:blast_mono_11hz.wav
+
+#begin blast_mono_11hz_adpcm_ms.wav
+/copy:blast_mono_11hz_adpcm_ms.wav
+
+#begin blast_mono_22hz.wav
+/copy:blast_mono_22hz.wav
+
+#begin blast_mono_22hz_adpcm_ms.wav
+/copy:blast_mono_22hz_adpcm_ms.wav
+
+#begin blast_mono_44hz_adpcm_ms.wav
+/copy:blast_mono_44hz_adpcm_ms.wav
+
+#begin one_two_three.wav
+/copy:one_two_three.wav
+
+#begin rock_loop_mono.wav
+/copy:rock_loop_mono.wav
+
+#begin rock_loop_stereo.wav
+/copy:rock_loop_stereo.wav
+
+#begin rock_loop_stereo_11hz.wav
+/copy:rock_loop_stereo_11hz.wav
+
+#begin rock_loop_stereo_11hz_8bit.wav
+/copy:rock_loop_stereo_11hz_8bit.wav
+
+#begin rock_loop_stereo_22hz.wav
+/copy:rock_loop_stereo_22hz.wav
+
+#begin rock_loop_stereo_22hz_8bit.wav
+/copy:rock_loop_stereo_22hz_8bit.wav
+
+#begin rock_loop_stereo_44hz_8bit.wav
+/copy:rock_loop_stereo_44hz_8bit.wav
+
+#begin rock_loop_stereo_44hz_adpcm_ms.wav
+/copy:rock_loop_stereo_44hz_adpcm_ms.wav
+
+#begin tone_mono_44khz_16bit.wav
+/copy:tone_mono_44khz_16bit.wav
+
+#begin tone_mono_44khz_16bit.xnb
+/copy:tone_mono_44khz_16bit.xnb
+
+#begin tone_mono_44khz_24bit.wav
+/copy:tone_mono_44khz_24bit.wav
+
+#begin tone_mono_44khz_8bit.wav
+/copy:tone_mono_44khz_8bit.wav
+
+#begin tone_mono_44khz_8bit.xnb
+/copy:tone_mono_44khz_8bit.xnb
+
+#begin tone_mono_44khz_float.wav
+/copy:tone_mono_44khz_float.wav
+
+#begin tone_mono_44khz_float.xnb
+/copy:tone_mono_44khz_float.xnb
+
+#begin tone_mono_44khz_imaadpcm.wav
+/copy:tone_mono_44khz_imaadpcm.wav
+
+#begin tone_mono_44khz_imaadpcm.xnb
+/copy:tone_mono_44khz_imaadpcm.xnb
+
+#begin tone_mono_44khz_msadpcm.wav
+/copy:tone_mono_44khz_msadpcm.wav
+
+#begin tone_mono_44khz_msadpcm.xnb
+/copy:tone_mono_44khz_msadpcm.xnb
+
+#begin tone_stereo_44khz_16bit.wav
+/copy:tone_stereo_44khz_16bit.wav
+
+#begin tone_stereo_44khz_16bit.xnb
+/copy:tone_stereo_44khz_16bit.xnb
+
+#begin tone_stereo_44khz_24bit.wav
+/copy:tone_stereo_44khz_24bit.wav
+
+#begin tone_stereo_44khz_8bit.wav
+/copy:tone_stereo_44khz_8bit.wav
+
+#begin tone_stereo_44khz_8bit.xnb
+/copy:tone_stereo_44khz_8bit.xnb
+
+#begin tone_stereo_44khz_float.wav
+/copy:tone_stereo_44khz_float.wav
+
+#begin tone_stereo_44khz_float.xnb
+/copy:tone_stereo_44khz_float.xnb
+
+#begin tone_stereo_44khz_imaadpcm.wav
+/copy:tone_stereo_44khz_imaadpcm.wav
+
+#begin tone_stereo_44khz_imaadpcm.xnb
+/copy:tone_stereo_44khz_imaadpcm.xnb
+
+#begin tone_stereo_44khz_msadpcm.wav
+/copy:tone_stereo_44khz_msadpcm.wav
+
+#begin tone_stereo_44khz_msadpcm.xnb
+/copy:tone_stereo_44khz_msadpcm.xnb
+
