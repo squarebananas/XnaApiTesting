@@ -108,7 +108,6 @@ public class SoundData
         {
             _soundEffectInstance.IsLooped = IsLooped;
             if (_initialApply3DDone && AutoApply3D)
-                if (Type != SoundType.DynamicSoundEffectInstance) // TODO
                     _soundEffectInstance.Apply3D(AudioListener, AudioEmitter);
 
             if (_soundEffectInstance.Volume != Volume)
