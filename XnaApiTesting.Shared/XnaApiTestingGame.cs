@@ -112,13 +112,19 @@ public class XnaApiTestingGame : Game
         _soundsList.Height = -100;
         _soundsListStackPanel.AddChild(_soundsList);
 
-        AddSound("rock_loop_mono.wav", 44100, AudioChannels.Mono);
-#if !BLAZORGL
-        AddSound("rock_loop_stereo_44hz_8bit.wav", 44100, AudioChannels.Stereo); // TODO
-#endif
-        AddSound("bark_mono_44hz_16bit.wav", 44100, AudioChannels.Mono);
-        AddSound("tone_mono_44khz_16bit.xnb");
-        AddSound("tone_stereo_44khz_msadpcm.xnb", 44100, AudioChannels.Stereo);
+        AddSound("rock_loop_mono.wav", 44100, 16, AudioChannels.Mono);
+        AddSound("rock_loop_stereo.wav", 44100, 16, AudioChannels.Stereo);
+        AddSound("rock_loop_stereo_44hz_8bit.wav", 44100, 8,AudioChannels.Stereo);
+        AddSound("rock_loop_stereo_22hz.wav", 22050, 16, AudioChannels.Stereo);
+        AddSound("bark_mono_44hz_16bit.wav", 44100, 16, AudioChannels.Mono);
+        AddSound("bark_mono_44hz_32bit.wav", 44100, 32, AudioChannels.Mono);
+        AddSound("tone_mono_44khz_16bit.xnb", 44100, 16, AudioChannels.Mono);
+        AddSound("tone_stereo_44khz_24bit.wav", 44100, 24, AudioChannels.Stereo);
+        AddSound("tone_stereo_44khz_msadpcm.xnb", 44100, null, AudioChannels.Stereo);
+        AddSound("tone_stereo_44khz_float.wav", 44100, null, AudioChannels.Stereo);
+        AddSound("split_tones.wav", 44100, 16, AudioChannels.Stereo);
+        AddSound("left_tone.wav", 44100, 16, AudioChannels.Stereo);
+        AddSound("right_tone.wav", 44100, 16, AudioChannels.Stereo);
 
         _soundsList.SelectedIndex = 0;
 
@@ -367,7 +373,7 @@ public class XnaApiTestingGame : Game
         base.Update(gameTime);
     }
 
-    public void AddSound(string name, int? sampleRate = null, AudioChannels? audioChannels = null)
+    public void AddSound(string name, int? sampleRate = null, int? sampleBits = null, AudioChannels? audioChannels = null)
     {
         SoundData soundEffectData = new(Content, name, SoundData.SoundType.SoundEffect);
         _soundsList.Items.Add(soundEffectData.ListBoxItem);
@@ -375,7 +381,7 @@ public class XnaApiTestingGame : Game
         SoundData soundEffectInstanceData = new(Content, name, SoundData.SoundType.SoundEffectInstance);
         _soundsList.Items.Add(soundEffectInstanceData.ListBoxItem);
 
-        if (name.EndsWith(".wav", StringComparison.OrdinalIgnoreCase))
+        if (name.EndsWith(".wav", StringComparison.OrdinalIgnoreCase) && sampleBits == 16)
         {
             SoundData dynamicSoundEffectInstanceData = new(Content, name, SoundData.SoundType.DynamicSoundEffectInstance, sampleRate, audioChannels);
             _soundsList.Items.Add(dynamicSoundEffectInstanceData.ListBoxItem);

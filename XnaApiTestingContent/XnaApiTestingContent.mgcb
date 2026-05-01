@@ -76,6 +76,9 @@
 #begin rock_loop_stereo_44hz_adpcm_ms.wav
 /copy:rock_loop_stereo_44hz_adpcm_ms.wav
 
+#begin split_tones.wav
+/copy:split_tones.wav
+
 #begin tone_mono_44khz_16bit.wav
 /copy:tone_mono_44khz_16bit.wav
 
@@ -141,4 +144,10 @@
 
 #begin tone_stereo_44khz_msadpcm.xnb
 /copy:tone_stereo_44khz_msadpcm.xnb
+
+#begin left_tone.wav
+/copy:left_tone.wav
+
+#begin right_tone.wav
+/copy:right_tone.wav
 
