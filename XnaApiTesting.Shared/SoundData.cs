@@ -74,13 +74,11 @@ public class SoundData
                 break;
 
             case SoundType.DynamicSoundEffectInstance:
-#if BLAZORGL
-                sampleRate = 48000; // TODO
-                audioChannels = AudioChannels.Mono;
-#endif
                 _soundObject = new DynamicSoundEffectInstance(sampleRate.Value, audioChannels.Value);
-                _data = new byte[stream.Length];
-                stream.Read(_data, 0, _data.Length);
+                int headerSize = 44;
+                _data = new byte[stream.Length - headerSize];
+                stream.Seek(headerSize, SeekOrigin.Begin);
+                stream.Read(_data);
                 _dynamicSoundEffectInstance.BufferNeeded += (s, e) => SubmitBuffer();
                 AutoSubmitBuffers = true;
                 AutoApply3D = true;
