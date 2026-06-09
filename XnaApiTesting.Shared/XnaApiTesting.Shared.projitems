@@ -9,7 +9,12 @@
     <Import_RootNamespace>XnaApiTesting</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)EnumRadioSelector.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)PopupWindow.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SoundData.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TestsSoundEffect.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TestsSamplerState.cs" />
+    <Compile Include="..\XnaApiTesting.Shared\TestsTextureSetGet.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ValueAdjuster.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Vector3Adjuster.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)XnaApiTestingGame.cs" />

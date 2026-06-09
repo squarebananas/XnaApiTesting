@@ -5,13 +5,18 @@
 /intermediateDir:obj/$(Platform)
 /platform:Windows
 /config:
-/profile:Reach
+/profile:HiDef
 /compress:False
 
 #-------------------------------- References --------------------------------#
 
 
 #---------------------------------- Content ---------------------------------#
+
+#begin effectTexture3D.fx
+/importer:EffectImporter
+/processor:EffectProcessor
+/build:effectTexture3D.fx
 
 #begin bark_mono_11hz_8bit.wav
 /copy:bark_mono_11hz_8bit.wav
@@ -48,6 +53,61 @@
 
 #begin blast_mono_44hz_adpcm_ms.wav
 /copy:blast_mono_44hz_adpcm_ms.wav
+
+#begin cubemap_color.dds
+/importer:TextureImporter
+/processor:TextureProcessor
+/build:cubemap_color.dds
+
+#begin cubemap_color_mipmaps.dds
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:GenerateMipmaps=True
+/build:cubemap_color_mipmaps.dds
+
+#begin cubemap_compressed.dds
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:TextureFormat=DxtCompressed
+/build:cubemap_compressed.dds
+
+#begin cubemap_compressed_mipmaps.dds
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:GenerateMipmaps=True
+/processorParam:TextureFormat=DxtCompressed
+/build:cubemap_compressed_mipmaps.dds
+
+#begin effectTextureCube.fx
+/importer:EffectImporter
+/processor:EffectProcessor
+/build:effectTextureCube.fx
+
+#begin grate_color.jpg
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:GenerateMipmaps=False
+/build:grate_color.jpg
+
+#begin grate_color_mipmaps.jpg
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:GenerateMipmaps=True
+/build:grate_color_mipmaps.jpg
+
+#begin grate_compressed.jpg
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:GenerateMipmaps=False
+/processorParam:TextureFormat=DxtCompressed
+/build:grate_compressed.jpg
+
+#begin grate_compressed_mipmaps.jpg
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:GenerateMipmaps=True
+/processorParam:TextureFormat=DxtCompressed
+/build:grate_compressed_mipmaps.jpg
 
 #begin one_two_three.wav
 /copy:one_two_three.wav

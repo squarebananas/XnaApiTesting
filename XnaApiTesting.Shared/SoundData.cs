@@ -104,9 +104,19 @@ public class SoundData
         if ((Type == SoundType.SoundEffectInstance || Type == SoundType.DynamicSoundEffectInstance) &&
             (_soundEffectInstance.IsDisposed == false))
         {
-            _soundEffectInstance.IsLooped = IsLooped;
+            try
+            {
+                if (_soundEffectInstance.IsLooped != IsLooped)
+                    _soundEffectInstance.IsLooped = IsLooped;
+            }
+            catch (Exception ex)
+            {
+                PopupWindow.ShowMessage(ex.Message + '\n' + ex.StackTrace);
+                IsLooped = false;
+            }
+
             if (_initialApply3DDone && AutoApply3D)
-                    _soundEffectInstance.Apply3D(AudioListener, AudioEmitter);
+                _soundEffectInstance.Apply3D(AudioListener, AudioEmitter);
 
             if (_soundEffectInstance.Volume != Volume)
                 _soundEffectInstance.Volume = Volume;
@@ -143,7 +153,8 @@ public class SoundData
                 break;
             case SoundType.DynamicSoundEffectInstance:
                 stateText = _dynamicSoundEffectInstance.IsDisposed ? "Disposed" : _dynamicSoundEffectInstance.State.ToString();
-                pendingBufferCountText = $"PendingBufferCount: {_dynamicSoundEffectInstance.PendingBufferCount}";
+                if (_dynamicSoundEffectInstance.IsDisposed == false)
+                    pendingBufferCountText = $"PendingBufferCount: {_dynamicSoundEffectInstance.PendingBufferCount}";
                 break;
         }
 
@@ -153,18 +164,25 @@ public class SoundData
 
     public void Play()
     {
-        switch (Type)
+        try
         {
-            case SoundType.SoundEffect:
-                if (PlayAppliesVolumePanPitch)
-                    _soundEffect.Play(Volume, Pitch, Pan);
-                else
-                    _soundEffect.Play();
-                break;
-            case SoundType.SoundEffectInstance:
-            case SoundType.DynamicSoundEffectInstance:
-                _soundEffectInstance.Play();
-                break;
+            switch (Type)
+            {
+                case SoundType.SoundEffect:
+                    if (PlayAppliesVolumePanPitch)
+                        _soundEffect.Play(Volume, Pitch, Pan);
+                    else
+                        _soundEffect.Play();
+                    break;
+                case SoundType.SoundEffectInstance:
+                case SoundType.DynamicSoundEffectInstance:
+                    _soundEffectInstance.Play();
+                    break;
+            }
+        }
+        catch (Exception ex)
+        {
+            PopupWindow.ShowMessage(ex.Message + '\n' + ex.StackTrace);
         }
     }
 
@@ -172,32 +190,64 @@ public class SoundData
     {
         if (Type == SoundType.SoundEffect)
             return;
-        _soundEffectInstance.Pause();
+
+        try
+        {
+            _soundEffectInstance.Pause();
+        }
+        catch (Exception ex)
+        {
+            PopupWindow.ShowMessage(ex.Message + '\n' + ex.StackTrace);
+        }
     }
 
     public void Resume()
     {
         if (Type == SoundType.SoundEffect)
             return;
-        _soundEffectInstance.Resume();
+
+        try
+        {
+            _soundEffectInstance.Resume();
+        }
+        catch (Exception ex)
+        {
+            PopupWindow.ShowMessage(ex.Message + '\n' + ex.StackTrace);
+        }
     }
 
     public void Stop()
     {
         if (Type == SoundType.SoundEffect)
             return;
-        if (AudioStopOption != null)
-            _soundEffectInstance.Stop(AudioStopOption.Value == AudioStopOptions.Immediate);
-        else
-            _soundEffectInstance.Stop();
+
+        try
+        {
+            if (AudioStopOption != null)
+                _soundEffectInstance.Stop(AudioStopOption.Value == AudioStopOptions.Immediate);
+            else
+                _soundEffectInstance.Stop();
+        }
+        catch (Exception ex)
+        {
+            PopupWindow.ShowMessage(ex.Message + '\n' + ex.StackTrace);
+        }
     }
 
     public void Apply3D()
     {
         if (Type == SoundType.SoundEffect)
             return;
-        _initialApply3DDone = true;
-        _soundEffectInstance.Apply3D(AudioListener, AudioEmitter);
+
+        try
+        {
+            _soundEffectInstance.Apply3D(AudioListener, AudioEmitter);
+            _initialApply3DDone = true;
+        }
+        catch (Exception ex)
+        {
+            PopupWindow.ShowMessage(ex.Message + '\n' + ex.StackTrace);
+        }
     }
 
     public void SubmitBuffer()
@@ -205,19 +255,34 @@ public class SoundData
         if (Type != SoundType.DynamicSoundEffectInstance || !AutoSubmitBuffers)
             return;
 
-        int sampleSizeInBytes = _dynamicSoundEffectInstance.GetSampleSizeInBytes(TimeSpan.FromSeconds(1));
-        int lengthToCopy = Math.Min(sampleSizeInBytes, _data.Length - _dataPosition);
-        byte[] buffer = _data[_dataPosition..(_dataPosition + lengthToCopy)];
-        _dynamicSoundEffectInstance.SubmitBuffer(buffer);
-        _dataPosition += sampleSizeInBytes;
-        if (_dataPosition >= _data.Length)
-            _dataPosition = 0;
+        try
+        {
+            int sampleSizeInBytes = _dynamicSoundEffectInstance.GetSampleSizeInBytes(TimeSpan.FromSeconds(1));
+            int lengthToCopy = Math.Min(sampleSizeInBytes, _data.Length - _dataPosition);
+            byte[] buffer = _data[_dataPosition..(_dataPosition + lengthToCopy)];
+            _dynamicSoundEffectInstance.SubmitBuffer(buffer);
+            _dataPosition += sampleSizeInBytes;
+            if (_dataPosition >= _data.Length)
+                _dataPosition = 0;
+        }
+        catch (Exception ex)
+        {
+            PopupWindow.ShowMessage(ex.Message + '\n' + ex.StackTrace);
+        }
     }
 
     public void Dispose()
     {
         if (Type == SoundType.SoundEffect)
             return;
-        _soundEffectInstance.Dispose();
+
+        try
+        {
+            _soundEffectInstance.Dispose();
+        }
+        catch (Exception ex)
+        {
+            PopupWindow.ShowMessage(ex.Message + '\n' + ex.StackTrace);
+        }
     }
 }
