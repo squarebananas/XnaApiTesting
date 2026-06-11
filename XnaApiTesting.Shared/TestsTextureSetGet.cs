@@ -1197,8 +1197,11 @@ public class TestsTextureSetGet
 
             if (_getDataTextureCubeFace != null)
             {
+                int maxDimension = Math.Max(_getDataTextureCubeFace.Width, _getDataTextureCubeFace.Height);
+                Vector2 scale = 256f * new Vector2(_getDataTextureCubeFace.Width, _getDataTextureCubeFace.Height) / maxDimension;
+
                 _spriteBatch.Begin(samplerState: _mipLevelSamplerStates[0]);
-                _spriteBatch.Draw(_getDataTextureCubeFace, new Rectangle((int)_getDataButton.Visual.AbsoluteLeft, 350, 256, 256), Color.White);
+                _spriteBatch.Draw(_getDataTextureCubeFace, new Rectangle((int)_getDataButton.Visual.AbsoluteLeft, 350, (int)scale.X, (int)scale.Y), Color.White);
                 _spriteBatch.End();
             }
         }
