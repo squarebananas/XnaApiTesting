@@ -17,10 +17,12 @@ public class XnaApiTestingGame : Game
     private Button _soundEffectButton;
     private Button _textureSetGetButton;
     private Button _samplerStateButton;
+    private Button _graphicsDeviceButton;
 
     private TestsSoundEffect _testsSoundEffect;
     private TestsTextureSetGet _testsTextureSetGet;
     private TestsSamplerState _testsSamplerState;
+    private TestsGraphicsDevice _testsGraphicsDevice;
 
     public XnaApiTestingGame()
     {
@@ -32,6 +34,7 @@ public class XnaApiTestingGame : Game
 
         _graphics.PreparingDeviceSettings += (s, e) =>
         {
+            e.GraphicsDeviceInformation.PresentationParameters.RenderTargetUsage = RenderTargetUsage.PreserveContents;
             e.GraphicsDeviceInformation.PresentationParameters.UseDebugLayers = true;
         };
 
@@ -89,6 +92,15 @@ public class XnaApiTestingGame : Game
             _stackPanel.IsVisible = false;
         };
         _stackPanel.AddChild(_samplerStateButton);
+
+        _graphicsDeviceButton = new();
+        _graphicsDeviceButton.Text = "GraphicsDevice Tests";
+        _graphicsDeviceButton.Click += (s, e) =>
+        {
+            _testsGraphicsDevice = new TestsGraphicsDevice(GraphicsDevice, Content);
+            _stackPanel.IsVisible = false;
+        };
+        _stackPanel.AddChild(_graphicsDeviceButton);
     }
 
     protected override void UnloadContent()
@@ -108,6 +120,7 @@ public class XnaApiTestingGame : Game
         _testsSoundEffect?.Update();
         _testsTextureSetGet?.Update();
         _testsSamplerState?.Update();
+        _testsGraphicsDevice?.Update(GraphicsDevice);
 
         if (keyboardState.IsKeyDown(Keys.Escape) ||
             mouseState.XButton1 == ButtonState.Pressed)
@@ -118,6 +131,8 @@ public class XnaApiTestingGame : Game
             _testsTextureSetGet = null;
             _testsSamplerState?.Close();
             _testsSamplerState = null;
+            _testsGraphicsDevice?.Close();
+            _testsGraphicsDevice = null;
 
             Content.Unload();
             GC.Collect();
@@ -135,6 +150,7 @@ public class XnaApiTestingGame : Game
         _testsSoundEffect?.Draw();
         _testsTextureSetGet?.Draw(GraphicsDevice, gameTime);
         _testsSamplerState?.Draw(GraphicsDevice);
+        _testsGraphicsDevice?.Draw(GraphicsDevice);
 
         GumService.Default.Draw();
 

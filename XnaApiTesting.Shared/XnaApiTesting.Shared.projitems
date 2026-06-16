@@ -12,6 +12,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)EnumRadioSelector.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)PopupWindow.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SoundData.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TestsGraphicsDevice.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)TestsSoundEffect.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)TestsSamplerState.cs" />
     <Compile Include="..\XnaApiTesting.Shared\TestsTextureSetGet.cs" />
